@@ -32,9 +32,15 @@ Typical requirements:
   - `FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_LOCATION` (Android 14+)
 
 ## Data storage (offline-first)
-Recommended:
-- Room (SQLite) with a dedicated table for track points
-- Consider batching inserts to reduce overhead
+A Room-based starter is included in this repo:
+- `apps/android/mountainr-db/` (entities, DAOs, migration)
+
+When your Android Studio project exists:
+- copy `apps/android/mountainr-db/src/main/java/com/mountainr/db` into your app module
+- wire it via `Room.databaseBuilder(...)`
+
+Canonical schema reference:
+- `docs/db/schema-v1.sql`
 
 ## Next file to implement
 - `RecordingService` (foreground service)

@@ -2,6 +2,9 @@
 
 This is a minimal model that supports GPS recording, maps, and achievements while remaining stack-agnostic.
 
+## Canonical schema reference
+- `docs/db/schema-v1.sql` (matches both iOS and Android starter implementations)
+
 ## Entities
 
 ### Activity
@@ -41,9 +44,13 @@ This is a minimal model that supports GPS recording, maps, and achievements whil
 - `criteria` (serialized rule)
 
 ### AchievementProgress
-- `achievementId`
-- `value`
+- `achievementId`, `value`
 - `completedAt?`
+
+### AppState (implementation helper)
+A small key/value store used for:
+- active recording session id
+- feature flags / lightweight settings
 
 ## Storage notes
 - Prefer a real local DB over JSON files due to trackpoint volume.

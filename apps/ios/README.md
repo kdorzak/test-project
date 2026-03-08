@@ -34,14 +34,14 @@ You will need:
 
 Notes:
 - iOS background tracking will stop if the user force-quits the app.
-- Consider implementing a “recording session” state machine and persisting track points incrementally.
+- Persist track points incrementally to SQLite while recording.
 
 ## Data storage (offline-first)
-Recommended:
-- SQLite as the source of truth
-- One of:
-  - GRDB (popular Swift SQLite wrapper)
-  - CoreData (works, but more complex for bulk track points)
+A GRDB + migrations starter is included in this repo as a local Swift package:
+- `apps/ios/MountainrCore`
+
+Canonical schema reference:
+- `docs/db/schema-v1.sql`
 
 ## Next file to implement
 - `LocationRecorder` service (CoreLocation)
