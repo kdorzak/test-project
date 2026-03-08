@@ -3,32 +3,41 @@
 Mobile mountaineering / hiking diary focused on **geo-tracking**, **trail maps**, and **gamified personal achievements**.
 
 ## What this repo is (right now)
-This repository is intentionally scaffolded to support multiple mobile stacks (React Native / Flutter / native). Once we pick the stack and map SDK, we’ll generate the actual mobile app project under `apps/mobile/`.
+This repository is scaffolded for **two separate native apps**:
+- `apps/ios` — SwiftUI + CoreLocation + Mapbox
+- `apps/android` — Kotlin + Jetpack Compose + foreground service + Mapbox
 
 ## Planned core features
 - **Activity recording**: start/pause/stop GPS tracking; store track + stats (distance, ascent/descent, time).
-- **Maps**: render recorded tracks; import trails (GPX) and show them as layers.
+- **Maps**: render recorded tracks; show trails layers.
+- **Trail discovery**: OSM-based trail discovery via Overpass API (prototype, cache locally).
 - **Gamification**:
   - “Paint trails by walking them” (coverage/progress over known trails).
   - Peak/range challenges (reach a set of peaks).
   - Milestones (distance, elevation gain, step count, streaks).
 
 ## Docs
-- `docs/project-blueprint.md` — technical blueprint (architecture, constraints)
-- `docs/decisions-needed.md` — decisions required to generate the real app skeleton
-- `docs/domain-model.md` — initial local data model
+- `docs/project-blueprint.md` — product + architecture overview
+- `docs/native-apps-blueprint.md` — iOS/Android-specific blueprint
+- `docs/osm-overpass.md` — Overpass query notes and constraints
+- `docs/domain-model.md` — stack-agnostic data model
+- `docs/stack-selection.md` — current stack decisions
 
 ## Repo layout
 ```
 .
 ├─ apps/
-│  └─ mobile/
-│     └─ README.md
+│  ├─ ios/
+│  ├─ android/
+│  └─ archive/           # optional, old spikes
 └─ docs/
    ├─ project-blueprint.md
-   ├─ decisions-needed.md
-   └─ domain-model.md
+   ├─ native-apps-blueprint.md
+   ├─ osm-overpass.md
+   ├─ domain-model.md
+   ├─ stack-selection.md
+   └─ decisions-needed.md
 ```
 
 ## Next step
-Pick the options in `docs/decisions-needed.md` (mobile stack, map SDK, platforms). After that, we’ll scaffold the chosen project (e.g., `expo init`, `flutter create`, or native Xcode/Gradle projects) and wire up location tracking + local storage.
+Decide whether you want a **shared core logic** module across iOS and Android (see `docs/decisions-needed.md`). Then we can scaffold the corresponding structure (e.g., no shared module vs Kotlin Multiplatform vs Rust core) and outline the first native screens/services to implement.

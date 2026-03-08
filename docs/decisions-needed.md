@@ -1,29 +1,22 @@
-# Decisions needed to generate the real app skeleton
+# Decisions (resolved)
 
-Please pick **one** option in each group.
+These decisions are now locked in for the scaffold:
 
-## 1) Mobile stack
-- A. React Native (Expo managed)
-- B. React Native (bare)
-- C. Flutter
-- D. Native (Swift/Kotlin)
+- **Mobile stack:** Native (two separate apps)
+  - iOS: SwiftUI / CoreLocation
+  - Android: Kotlin / Jetpack Compose / Foreground Service
+- **Map SDK:** Mapbox
+- **Offline strategy:** Offline-first, local-only MVP (no accounts)
+- **Trail sources (initial):** OSM-based trail discovery (Overpass API)
+- **Platforms:** iOS + Android
 
-## 2) Map SDK
-- A. Mapbox
-- B. MapLibre
-- C. Google Maps SDK
-- D. Apple Maps (iOS) + alternative on Android
+## Remaining decision (pick one)
+### Shared core logic
+Even with two native apps, you may want to share *non-UI* logic (stats, achievements rules, trail painting) to avoid divergence.
 
-## 3) Offline strategy
-- A. Offline-first local-only MVP (no accounts)
-- B. Offline-first + optional cloud sync (later)
+Pick one:
+1. **None** (duplicate logic in Swift + Kotlin; simplest to start)
+2. **Kotlin Multiplatform (KMP)** shared module (best long-term for shared algorithms)
+3. **Rust core** (shared via FFI; powerful but heavier tooling)
 
-## 4) Trail sources (initial)
-- A. GPX import only
-- B. GPX + curated peaks dataset (bundled)
-- C. GPX + OSM-based trail discovery
-
-## 5) Platforms
-- A. iOS + Android
-- B. iOS only (initial)
-- C. Android only (initial)
+(We will scaffold accordingly once you choose.)
