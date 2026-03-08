@@ -1,0 +1,40 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Env
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Node (if any tooling is introduced)
+node_modules/
+
+# Android
+**/.gradle/
+**/local.properties
+**/build/
+**/*.jks
+**/*.keystore
+
+# iOS / Xcode
+**/Pods/
+**/DerivedData/
+**/*.xcworkspace
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcuserstate
+**/xcuserdata/
+
+# Flutter (if ever added)
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
