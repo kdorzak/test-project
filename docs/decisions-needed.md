@@ -9,14 +9,9 @@ These decisions are now locked in for the scaffold:
 - **Offline strategy:** Offline-first, local-only MVP (no accounts)
 - **Trail sources (initial):** OSM-based trail discovery (Overpass API)
 - **Platforms:** iOS + Android
+- **Shared core logic:** **None** (duplicate logic in Swift + Kotlin)
 
-## Remaining decision (pick one)
-### Shared core logic
-Even with two native apps, you may want to share *non-UI* logic (stats, achievements rules, trail painting) to avoid divergence.
-
-Pick one:
-1. **None** (duplicate logic in Swift + Kotlin; simplest to start)
-2. **Kotlin Multiplatform (KMP)** shared module (best long-term for shared algorithms)
-3. **Rust core** (shared via FFI; powerful but heavier tooling)
-
-(We will scaffold accordingly once you choose.)
+## Implication of “no shared core”
+- We will keep the *domain model* consistent via `docs/domain-model.md`.
+- Shared algorithms (distance/ascent calculation, trail painting, achievements) must be re-implemented on both platforms.
+- To avoid drift, treat `docs/domain-model.md` + `docs/native-apps-blueprint.md` as the source of truth and add tests on both platforms for the same fixtures (GPX/JSON tracks).

@@ -13,6 +13,12 @@ docs/
   osm-overpass.md
 ```
 
+## Cross-platform strategy (no shared code)
+This project intentionally uses **no shared core module**. That means:
+- Swift and Kotlin implementations will diverge unless constrained by a shared spec.
+- `docs/domain-model.md` is the canonical contract (tables, fields, units).
+- Add *matching unit tests* on iOS and Android that run the same fixtures (example tracks) and assert the same computed stats.
+
 ## Common product concepts (keep consistent on both platforms)
 ### Activity recording
 - Session state machine: `idle → recording → paused → stopped`

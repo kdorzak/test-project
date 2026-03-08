@@ -8,6 +8,11 @@ This guide explains how to initialize the **two native apps** in this repo and a
 - `docs/native-apps-blueprint.md` — architecture + platform constraints
 - `docs/domain-model.md` — shared data model semantics
 
+## Cross-platform note: no shared code
+There is **no shared core module**. To keep iOS/Android behavior aligned:
+- treat `docs/domain-model.md` as the contract
+- add matching unit tests on both platforms using the same fixtures (example recorded tracks)
+
 ## Shared requirements to implement first (both platforms)
 1. **Recording session state machine**: `idle → recording → paused → stopped`
 2. **Local persistence (SQLite)**:
