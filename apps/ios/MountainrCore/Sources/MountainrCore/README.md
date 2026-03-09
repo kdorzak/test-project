@@ -2,7 +2,11 @@
 
 This is a small Swift Package that provides:
 - SQLite schema migrations aligned with `docs/db/schema-v1.sql`
-- GRDB models for `activities` and `track_points`
+- GRDB models for:
+  - `activities`
+  - `track_points`
+  - `trails`
+  - `app_state`
 
 ## Integrate into the iOS app
 In Xcode:

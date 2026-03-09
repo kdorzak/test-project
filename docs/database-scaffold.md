@@ -13,6 +13,8 @@ This file is the source of truth for table/column names and units.
 - Models:
   - `ActivityRecord`
   - `TrackPointRecord`
+  - `TrailRecord`
+  - `AppStateRecord`
 
 How to integrate:
 - In Xcode, add local package dependency pointing at `apps/ios/MountainrCore`.

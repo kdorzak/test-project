@@ -28,7 +28,7 @@ public final class MountainrDatabase {
 
     // In development, helps detect accidental schema changes
     #if DEBUG
-    migrator.eraseDatabaseOnSchemaChange = false
+    migrator.eraseDatabaseOnSchemaChange = true
     #endif
 
     migrator.registerMigration("v1") { db in
