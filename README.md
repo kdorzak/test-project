@@ -40,4 +40,10 @@ This repository is scaffolded for **two separate native apps**:
 ```
 
 ## Next step
-Decide whether you want a **shared core logic** module across iOS and Android (see `docs/decisions-needed.md`). Then we can scaffold the corresponding structure (e.g., no shared module vs Kotlin Multiplatform vs Rust core) and outline the first native screens/services to implement.
+The initial decisions are locked in (see `docs/decisions-needed.md`): **two separate native apps** with **no shared core module**.
+
+Next, scaffold the first end-to-end MVP loop:
+- Create the native app projects under `apps/ios/` and `apps/android/` (see `docs/scaffold-native.md`).
+- Implement the recording session state machine (`idle → recording → paused → stopped`).
+- Persist activities + track points incrementally to SQLite (schema: `docs/db/schema-v1.sql`).
+- Render the recorded polyline on a Mapbox map.
